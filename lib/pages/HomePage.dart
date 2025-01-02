@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gymapp/colors.dart';
 import 'package:gymapp/data/workout_data.dart';
+import 'package:gymapp/pages/workout_page.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
@@ -57,7 +58,14 @@ class HomePage extends StatelessWidget {
   void cancel(BuildContext context) {
     // Close the dialog without saving
     Navigator.of(context).pop();
-    
+  }
+
+  // Go to new workout page
+  void goToWorkoutPage(BuildContext context, String workoutName) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => WorkoutPage(workoutName: workoutName)),
+    );
   }
 
   @override
@@ -66,21 +74,29 @@ class HomePage extends StatelessWidget {
       builder: (context, value, child) {
         return Scaffold(
           appBar: AppBar(
-            
             backgroundColor: AppColors.primaryColor,
-            title: const Text("Workout Tracker",style: TextStyle(color: Colors.white),),
+            title: const Text(
+              "Workout Tracker",
+              style: TextStyle(color: Colors.white),
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             backgroundColor: AppColors.primaryColor,
             onPressed: () => createNewWorkout(context), // Pass context here
-            child: const Icon(Icons.add,color: Colors.white,),
+            child: const Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
           ),
           body: ListView.builder(
             itemCount: value.workoutList.length,
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(value.getWorkoutList()[index].name),
-                trailing: IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_back_ios)),
+                trailing: IconButton(
+                  onPressed: () => goToWorkoutPage(context, value.getWorkoutList()[index].name),
+                  icon: const Icon(Icons.arrow_forward_ios), // Changed icon for clarity
+                ),
               );
             },
           ),
