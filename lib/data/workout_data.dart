@@ -13,7 +13,10 @@ class WorkoutData extends ChangeNotifier {
     // Default workout with an initial exercise
     Workout(name: "Upper Body", exercises: [
       Exercise(name: "Bicep Curls", weight: "10", reps: "10", sets: "3"),
-    ])
+    ]),
+    Workout(name: "Lower Body", exercises: [
+      Exercise(name: "Squats", weight: "10", reps: "10", sets: "3"),
+    ]),
   ];
 
   // Get the number of exercises in a specified workout by its name

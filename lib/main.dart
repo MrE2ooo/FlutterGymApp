@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/colors.dart';
 import 'package:gymapp/data/workout_data.dart';
 import 'package:gymapp/pages/HomePage.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => WorkoutData(),
-      child: const MaterialApp(
+      child: MaterialApp(
+        themeMode: ThemeMode.light,
         debugShowCheckedModeBanner: false,
         home: HomePage(),
       ),
