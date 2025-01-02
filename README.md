@@ -1,16 +1,19 @@
 # gymapp
 
-A new Flutter project.
+GymApp is a Flutter-based mobile application designed to help users manage their workout routines and track their exercise progress. The app allows users to create and customize workouts, add exercises with specific details such as weight, reps, and sets, and mark exercises as completed. The intuitive interface promotes an organized approach to fitness, enabling users to stay motivated and monitor their progress over time. With features like adding new workouts, tracking multiple exercises within each workout, and toggling completion status, GymApp aims to enhance the user experience in personal fitness management. 
 
-## Getting Started
+▎Key Features
 
-This project is a starting point for a Flutter application.
+• Workout Management: Create and manage multiple workouts.
 
-A few resources to get you started if this is your first Flutter project:
+• Exercise Tracking: Add detailed exercises, including weight, reps, and sets.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+• Progress Tracking: Mark exercises as completed to track workout progress.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+• User-Friendly Interface: Intuitive design for easy navigation and usage.
+
+▎Technologies Used
+
+• Flutter for cross-platform mobile development.
+
+• Provider for state management.
