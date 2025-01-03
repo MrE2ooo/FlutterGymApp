@@ -39,25 +39,34 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  // Save workout
+ // Save workout
   void save(BuildContext context) {
     // Get workout name from text controller
     String newWorkoutName = newWorkoutNameController.text;
 
-    // Add workout to workout data list
-    Provider.of<WorkoutData>(context, listen: false).addWorkout(newWorkoutName);
+    // Check if the workout name is not empty
+    if (newWorkoutName.isNotEmpty) {
+      // Add workout to workout data list
+      Provider.of<WorkoutData>(context, listen: false).addWorkout(newWorkoutName);
 
-    // Close the dialog after saving
-    Navigator.of(context).pop();
+      // Close the dialog after saving
+      Navigator.of(context).pop();
 
-    // Optionally clear the text field
-    newWorkoutNameController.clear();
+      // Optionally clear the text field
+      newWorkoutNameController.clear();
+    } else {
+      // Show an error message if the name is empty
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter a workout name.')),
+      );
+    }
   }
 
   // Cancel
   void cancel(BuildContext context) {
     // Close the dialog without saving
     Navigator.of(context).pop();
+    newWorkoutNameController.clear();
   }
 
   // Go to new workout page
