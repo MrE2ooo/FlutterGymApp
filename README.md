@@ -1,6 +1,6 @@
 # gymapp
 
-GymApp is a Flutter-based mobile application designed to help users manage their workout routines and track their exercise progress. The app allows users to create and customize workouts, add exercises with specific details such as weight, reps, and sets, and mark exercises as completed. The intuitive interface promotes an organized approach to fitness, enabling users to stay motivated and monitor their progress over time. With features like adding new workouts, tracking multiple exercises within each workout, and toggling completion status, GymApp aims to enhance the user experience in personal fitness management. 
+GymApp is a Flutter-based mobile application designed to help users manage their workout routines and track their exercise progress. The app allows users to create and customize workouts, add exercises with specific details such as weight, reps, and sets, and mark exercises as completed. The intuitive interface promotes an organized approach to fitness, enabling users to stay motivated and monitor their progress over time. With features like adding new workouts, tracking multiple exercises within each workout, and toggling completion status, GymApp aims to enhance the user experience in personal fitness management.
 
 ▎Key Features
 
