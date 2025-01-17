@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/colors.dart';
 import 'package:gymapp/components/CustomChip.dart';
 
 class ExerciseTile extends StatelessWidget {
@@ -30,7 +31,7 @@ class ExerciseTile extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: AppColors.boxShadowColor,
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3), // changes position of shadow
@@ -43,7 +44,7 @@ class ExerciseTile extends StatelessWidget {
           exerciseName,
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            color: Color(0xFF4dadf7),
+            color: AppColors.primaryColor,
           ),
         ),
         subtitle: Row(
@@ -71,11 +72,11 @@ class ExerciseTile extends StatelessWidget {
           children: [
             Checkbox(
               value: isCompleted,
-              activeColor: const Color(0xFF4dadf7),
+              activeColor:  AppColors.primaryColor,
               onChanged: (value) => onCheckBoxChanged!(value),
             ),
             IconButton(
-              icon: const Icon(Icons.delete),
+              icon: const Icon(Icons.delete,color: AppColors.deleteColor,),
               onPressed: onDelete, // Call the onDelete function when pressed
             ),
           ],

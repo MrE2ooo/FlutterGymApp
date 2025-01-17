@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/colors.dart';
 
 class WorkoutTrackerListTile extends StatelessWidget {
   final String workoutName;
@@ -17,11 +18,11 @@ class WorkoutTrackerListTile extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 10.0),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: AppColors.customWhite,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: AppColors.boxShadowColor,
             spreadRadius: 2,
             blurRadius: 5,
             offset: const Offset(0, 3), // changes position of shadow
@@ -29,17 +30,17 @@ class WorkoutTrackerListTile extends StatelessWidget {
         ],
       ),
       child:ListTile(
-      title: Text(workoutName),
+      title: Text(workoutName ,style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.primaryColor),),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           IconButton(
             onPressed: onNavigate,
-            icon: const Icon(Icons.arrow_forward_ios),
+            icon: const Icon(Icons.arrow_forward_ios,color: AppColors.primaryColor,),
           ),
           IconButton(
             onPressed: onDelete,
-            icon: const Icon(Icons.delete),
+            icon: const Icon(Icons.delete,color: AppColors.deleteColor,),
           ),
         ],
       ),

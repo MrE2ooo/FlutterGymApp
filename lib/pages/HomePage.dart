@@ -29,25 +29,49 @@ class HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
   void createNewWorkout(BuildContext context) {
     showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Create New Workout"),
-        content: TextField(
-          controller: newWorkoutNameController,
-          decoration: const InputDecoration(hintText: "Enter workout name"),
-        ),
-        actions: [
-          MaterialButton(
-            onPressed: () => save(context),
-            child: const Text("Save"),
-          ),
-          MaterialButton(
-            onPressed: () => cancel(context),
-            child: const Text("Cancel"),
-          ),
-        ],
+  context: context,
+  builder: (context) => AlertDialog(
+    backgroundColor: AppColors.backgroundColor, // Applying background color
+    title: const Text(
+      "Create New Workout",
+      style: TextStyle(
+        color: AppColors.primaryColor, // Applying primary color to title
       ),
-    );
+    ),
+    content: TextField(
+      controller: newWorkoutNameController,
+      decoration: InputDecoration(
+        hintText: "Enter workout name",
+        hintStyle: TextStyle(color: AppColors.primaryColor.withOpacity(0.6)), // Applying primary color with opacity to hint text
+        enabledBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColors.primaryColor), // Applying primary color to underline
+        ),
+        focusedBorder: UnderlineInputBorder(
+          borderSide: BorderSide(color: AppColors.primaryColor), // Applying primary color to focused underline
+        ),
+      ),
+    ),
+    actions: [
+      MaterialButton(
+        onPressed: () => save(context),
+        color: AppColors.customChipColor, // Applying custom chip color to button
+        child: const Text(
+          "Save",
+          style: TextStyle(color: AppColors.customWhite), // Applying custom white color to button text
+        ),
+      ),
+      MaterialButton(
+        onPressed: () => cancel(context),
+        color: AppColors.deleteColor, // Applying delete color to button
+        child: const Text(
+          "Cancel",
+          style: TextStyle(color: AppColors.customWhite), // Applying custom white color to button text
+        ),
+      ),
+    ],
+  ),
+);
+
   }
 
   void save(BuildContext context) {

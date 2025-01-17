@@ -33,11 +33,12 @@ class _WorkoutPageState extends State<WorkoutPage> {
               color: Colors.white,
             ),
           ),
-          appBar:CustomAppBar(title: widget.workoutName),
+          appBar: CustomAppBar(title: widget.workoutName),
           body: ListView.builder(
             itemCount: value.numberOfExercisesInWorkout(widget.workoutName),
             itemBuilder: (context, index) {
-              final exercise = value.getRelevantWorkout(widget.workoutName).exercises[index];
+              final exercise =
+                  value.getRelevantWorkout(widget.workoutName).exercises[index];
               return ExerciseTile(
                 exerciseName: exercise.name,
                 weights: exercise.weight,
@@ -45,11 +46,10 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 sets: exercise.sets,
                 isCompleted: exercise.isCompleted,
                 onCheckBoxChanged: (val) => onCheckBoxChenged(
-                    context,
-                    widget.workoutName,
-                    exercise.name),
+                    context, widget.workoutName, exercise.name),
                 // Add a delete button to each exercise
-                onDelete: () => confirmDeleteExercise(context, exercise.name), // Assuming ExerciseTile supports this
+                onDelete: () => confirmDeleteExercise(context,
+                    exercise.name), // Assuming ExerciseTile supports this
               );
             },
           ),
@@ -68,26 +68,42 @@ class _WorkoutPageState extends State<WorkoutPage> {
   // Confirm delete exercise
   void confirmDeleteExercise(BuildContext context, String exerciseName) {
     showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Delete Exercise"),
-        content: const Text("Are you sure you want to delete this exercise?"),
-        actions: [
-          TextButton(
-            onPressed: () {
-              Provider.of<WorkoutData>(context, listen: false)
-                  .deleteExercise(widget.workoutName, exerciseName);
-              Navigator.of(context).pop(); // Close the dialog
-            },
-            child: const Text("Yes, Delete"),
-          ),
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(), // Close the dialog
-            child: const Text("Cancel"),
-          ),
-        ],
+  context: context,
+  builder: (context) => AlertDialog(
+    backgroundColor: AppColors.backgroundColor, // Applying background color
+    title: const TAxt(
+      "Delete Exercise",
+      style: TextStyle(
+        color: AppColors.primaryColor, // Applying primary color to title
       ),
-    );
+    ),
+    content: Text(
+      "Are you sure you want to delete this exercise?",
+      style: TextStyle(color: AppColors.primaryColor.withOpacity(0.8)), // Applying primary color with opacity to content text
+    ),
+    actions: [
+      TextButton(
+        onPressed: () {
+          Provider.of<WorkoutData>(context, listen: false)
+              .deleteExercise(widget.workoutName, exerciseName);
+          Navigator.of(context).pop(); // Close the dialog
+        },
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.customWhite, backgroundColor: AppColors.deleteColor, // Applying delete color to button background
+        ),
+        child: const Text("Yes, Delete"),
+      ),
+      TextButton(
+        onPressed: () => Navigator.of(context).pop(), // Close the dialog
+        style: TextButton.styleFrom(
+          foregroundColor: AppColors.customWhite, backgroundColor: AppColors.customChipColor, // Applying custom chip color to button background
+        ),
+        child: const Text("Cancel"),
+      ),
+    ],
+  ),
+);
+
   }
 
   // clear the controllers
@@ -146,7 +162,14 @@ class _WorkoutPageState extends State<WorkoutPage> {
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: const Text("Add a new Exercise"),
+          backgroundColor:
+              AppColors.backgroundColor, // Applying background color
+          title: const Text(
+            "Add a new Exercise",
+            style: TextStyle(
+              color: AppColors.primaryColor, // Applying primary color to title
+            ),
+          ),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -154,42 +177,112 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 // Name
                 TextField(
                   controller: exerciseNameController,
-                  decoration: const InputDecoration(labelText: "Exercise Name"),
+                  decoration: const InputDecoration(
+                    labelText: "Exercise Name",
+                    labelStyle: TextStyle(
+                        color: AppColors
+                            .primaryColor), // Applying primary color to label
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to underline
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to focused underline
+                    ),
+                  ),
                 ),
                 // Weight
                 TextField(
                   controller: weightController,
-                  decoration: const InputDecoration(labelText: "Weight"),
+                  decoration: const InputDecoration(
+                    labelText: "Weight",
+                    labelStyle: TextStyle(
+                        color: AppColors
+                            .primaryColor), // Applying primary color to label
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to underline
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to focused underline
+                    ),
+                  ),
                   keyboardType: TextInputType.number,
                 ),
                 // Reps
                 TextField(
                   controller: repsController,
-                  decoration: const InputDecoration(labelText: "Reps"),
+                  decoration: const InputDecoration(
+                    labelText: "Reps",
+                    labelStyle: TextStyle(
+                        color: AppColors
+                            .primaryColor), // Applying primary color to label
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to underline
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to focused underline
+                    ),
+                  ),
                   keyboardType: TextInputType.number,
                 ),
                 // Sets
                 TextField(
                   controller: setsController,
-                  decoration: const InputDecoration(labelText: "Sets"),
+                  decoration: const InputDecoration(
+                    labelText: "Sets",
+                    labelStyle: TextStyle(
+                        color: AppColors
+                            .primaryColor), // Applying primary color to label
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to underline
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(
+                          color: AppColors
+                              .primaryColor), // Applying primary color to focused underline
+                    ),
+                  ),
                   keyboardType: TextInputType.number,
                 ),
               ],
             ),
           ),
           actions: [
-            // save button
+            // Save button
             MaterialButton(
-              onPressed: () => save(), // Pass context here
-              child: const Text("Save"),
+              onPressed: () => save(),
+              color: AppColors
+                  .customChipColor, // Applying custom chip color to button
+              child: const Text(
+                "Save",
+                style: TextStyle(
+                    color: AppColors
+                        .customWhite), // Applying custom white color to button text
+              ),
             ),
-
-            //  cancel
+// Cancel button
             MaterialButton(
-              onPressed: () {
-                cancel(context); // Pass context here
-              },
-              child: const Text("Cancel"),
+              onPressed: () => cancel(context),
+              color: AppColors.deleteColor, // Applying delete color to button
+              child: const Text(
+                "Cancel",
+                style: TextStyle(
+                    color: AppColors
+                        .customWhite), // Applying custom white color to button text
+              ),
             ),
           ],
         );

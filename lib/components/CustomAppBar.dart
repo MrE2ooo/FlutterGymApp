@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gymapp/colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
@@ -8,17 +9,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: const Color(0xFF4dadf7), // Update with your primary color
+      backgroundColor: AppColors.primaryColor, // Update with your primary color
       title: Text(
         title,
         style: const TextStyle(
-          color: Colors.white60, // Dark gray for better contrast
+          color: AppColors.customWhite, 
           fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
       centerTitle: true, // Center the title
       elevation: 4, // Shadow effect
+      automaticallyImplyLeading: false, // Remove the back arrow
     );
   }
 

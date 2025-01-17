@@ -1,5 +1,6 @@
 // custom_chip.dart
 import 'package:flutter/material.dart';
+import 'package:gymapp/colors.dart';
 
 class CustomChip extends StatelessWidget {
   final String label;
@@ -14,14 +15,14 @@ class CustomChip extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0), // Padding around the text
       decoration: BoxDecoration(
-        color: const Color(0xFF70B4E4), // Background color
+        color: AppColors.customChipColor, // Background color
         borderRadius: BorderRadius.circular(12.0), // Rounded corners
         
       ),
       child: Text(
         label,
         style: const TextStyle(
-          color: Colors.white,
+          color: AppColors.customWhite,
           fontWeight: FontWeight.bold,
         ),
       ),
